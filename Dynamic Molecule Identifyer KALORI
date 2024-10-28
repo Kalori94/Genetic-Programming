@@ -1,0 +1,24 @@
+#Vamos a crear un ciclo while para que el usuario meta tantas secuencias como quiera
+#Añadimos el control
+salir = False
+#Añadimos nuestra lista donde se guardaran las secuencias
+secuenciasUsuario = {}
+while salir == False:
+    nombreSecuencia = input("Ingresa el nombre de tu secuencia(EXIT para salir): ").title()
+    secuencia = input("Ingresa tu secuencia(EXIT para salir): ").upper()
+    secuenciasUsuario[nombreSecuencia] = secuencia
+    if nombreSecuencia.upper() == "EXIT" or secuencia.upper() == "EXIT":
+        salir = True
+        print("Gracias por usar el identificador de moléculas Kalori")
+    else:
+        # Ciclo para revisar cada secuencia
+        #Usamos clave y secuencia para que podamos imprimir la secuencia con su correspondiente molécula
+        for clave, secuencia in secuenciasUsuario.items():
+            #El ARN es el único que tiene Uracilo, no hay un single-letter code que tenga U, entonces podemos usarlo como condicional
+            if 'U' in secuencia:
+                print(f"{clave} es una molécula de ARN")
+            #El ADN se conforma de las 4 bases, entonces tienen que existir las 4 bases para que se diga que es ADN
+            elif "A" in secuencia and "T" in secuencia and "C" in secuencia and "G" in secuencia:
+                print(f"{clave} es una molécula de ADN")
+            else:
+                print(f"{clave} es una proteína")
