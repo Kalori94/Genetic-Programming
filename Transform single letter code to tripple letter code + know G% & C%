@@ -1,0 +1,51 @@
+#Para imprimirlo visualmente más bonito podría quedar asi
+secuenciasARN ={
+    "A" : "GCU",
+    "R" : "AGA",
+    "N" : "AAU",
+    "D" : "GAU",
+    "C" : "UGC",
+    "F" : "UUU",
+    "G" : "GGC",
+    "E" : "GAA",
+    "Q" : "CAG",
+    "H" : "CAU",
+    "I" : "AUU",
+    "L" : "UUA",
+    "K" : "AAA",
+    "P" : "CCU",
+    "S" : "UCU",
+    "Y" : "UAU",
+    "T" : "ACU",
+    "W" : "UGG",
+    "V" : "GUA",
+    "M" : "AUG"
+}
+#La primera secuencia es:
+sec = "AGEKGKKIFVQKCSQCHTVCSQCHTVEKGGKHKTGPNEKGKKIFVQKCSQCHTVLHGLFGRKTGQA"
+#Creamos una variable tupo str vacía, en donde iremos pegando las nuevas sustituciones
+cadenaARN = ""
+for codon in sec:
+    if codon in secuenciasARN:
+        cadenaARN += secuenciasARN[codon] + "-" #Añadimos el "-" para que lo añada junto con cada sustitucion
+    else:
+        cadenaARN += codon
+
+print(cadenaARN)
+print(type(cadenaARN))
+
+#Añadimos los contadores
+contadorG = 0
+contadorC = 0
+for base in cadenaARN:
+    if base == "G":
+        contadorG += 1
+    if base == "C":
+        contadorC += 1
+
+totalbases = len(sec)
+porcentageG = round((contadorG/totalbases)*100,2)
+porcentageC = round((contadorC/totalbases)*100,2)
+
+print(f"El porcentage de Guaninas es de {porcentageG}%")
+print(f"El porcentage de Citocinas es de {porcentageC}%")
