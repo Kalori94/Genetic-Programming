@@ -1,0 +1,19 @@
+#Tenemos las siguientes secuencias
+secuencias2 = {
+    "sec2" : "AGDVEKGKKIFIMK",
+    "sec3" : "ATTGGACGTAATGC",
+    "sec4" : "AGGUACCGAUCCA",
+    #Añadimos un extra para ver que funcione
+    "sec5" : "GGKGGU"
+}
+# Ciclo para revisar cada secuencia
+#Usamos clave y secuencia para que podamos imprimir la secuencia con su correspondiente molécula
+for clave, secuencia in secuencias2.items():
+    #El ARN es el único que tiene Uracilo, no hay un single-letter code que tenga U, entonces podemos usarlo como condicional
+    if 'U' in secuencia:
+        print(f"{clave} es una molécula de ARN")
+    #El ADN se conforma de las 4 bases, entonces tienen que existir las 4 bases para que se diga que es ADN
+    elif "A" in secuencia and "T" in secuencia and "C" in secuencia and "G" in secuencia:
+        print(f"{clave} es una molécula de ADN")
+    else:
+        print(f"{clave} es una proteína")
