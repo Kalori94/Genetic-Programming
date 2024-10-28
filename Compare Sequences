@@ -1,0 +1,20 @@
+#Creamos un diccionario con las secuencias, porque es de facil acceso
+secuencias = {
+    "CitC_humano" : "VEKGKKIFIMKCSQCHTVEKGGKHKTGPNLHGLFGRKTGQA",
+    "CitC_gorila" : "AGDVEKGKKIFIMKCSQCHTVEKGGKHKTGPNLHGLFGRKTGQA",
+    "CitC_pollo" : "AGDIEKGKKIFVQKCSQCHTVEKGGKHKTGPNLHGLFGRKTGQA"}
+#Primero tenemos que sacar las claves y hacerlas una lista
+secuenciasCitocromo = list(secuencias.keys())
+print(secuenciasCitocromo)
+
+#Luego empezamos el ciclo for para recorrer cada una de las letras
+#Primero debemos de decirle al ciclo que lo que tiene que recorrer
+for secuencia in range(len(secuenciasCitocromo)):
+    #Hacemos otro ciclo para que se compare cada elemento en una posición j de cada clave
+    for j in range(secuencia + 1, len(secuenciasCitocromo)):
+        secuencia_1 = secuenciasCitocromo[secuencia]
+        secuencia_2 = secuenciasCitocromo[j]
+        if secuencias[secuencia_1] == secuencias[secuencia_2]:
+            print(f"La secuencia de {secuencia_1} es igual a la secuencia de {secuencia_2}")
+        else:
+            print(f"La secuencia de {secuencia_1} es diferente a la secuencia de {secuencia_2}")
